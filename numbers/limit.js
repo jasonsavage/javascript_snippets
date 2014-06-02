@@ -1,4 +1,3 @@
-"use strict";
 
 /**
  * limits the value so it is between min and max ([n] < min return min; [n] > max return max)
@@ -9,4 +8,4 @@
 function limit(value, min, max)
 {
     return Math.max(Math.min(value, max), min);
-};
+}

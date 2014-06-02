@@ -7,4 +7,5 @@
 function isArray(value)
 {
     return value instanceof Array;
+    //return value.length === +value.length; //from underscore
 }
