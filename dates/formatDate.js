@@ -8,7 +8,7 @@
 function formatDate( value )
 {
     //change any seperators to /
-    value = value.replace(/[\.\-\s]+/g, '/');
+    value = value.toString().replace(/[\.\-\s]+/g, '/');
 
     //split month, day, year
     var p = value.split('/');
