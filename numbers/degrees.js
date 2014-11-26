@@ -1,7 +1,5 @@
-"use strict";
-
 /**
- * converts radians to degrees 
+ * converts radians to degrees
  * @param {number} radians
  */
 function degrees(radians)
