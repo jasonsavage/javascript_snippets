@@ -8,8 +8,6 @@
 function truncate(value, length)
 {
     length = length || 0;
-    if (value.length <= length)
-        return value;
-        
-    return value.substring(0, length) + "...";
+    value = "" + value; //to string
+    return (value.length <= length) ? value : value.substring(0, length-3) + "...";
 }
