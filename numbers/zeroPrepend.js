@@ -5,10 +5,10 @@
  * @param {number/string} value
  * @param {number} places
  */
-function zeroPrepend(value, places)
-{
+function zeroPrepend(value, places) {
     places = parseInt(places) || 0;
-    while(places--)
+    while(value.length < places) {
         value = "0" + value;
+    }
     return value;
-};
+}
