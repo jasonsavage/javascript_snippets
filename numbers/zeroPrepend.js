@@ -7,6 +7,7 @@
  */
 function zeroPrepend(value, places) {
     places = parseInt(places) || 0;
+    value = "" + value; //to string
     while(value.length < places) {
         value = "0" + value;
     }
