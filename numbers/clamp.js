@@ -5,7 +5,6 @@
  * @param {number} min
  * @param {number} max
  */
-function limit(value, min, max)
-{
+function clamp(value, min, max) {
     return Math.max(Math.min(value, max), min);
 }
