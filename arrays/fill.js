@@ -1,14 +1,16 @@
-"use_strict";
-
 /**
- * creates an array and fills it with [value] to the specified [length].
- * @param {number/string/array/object} value
- * @param {number} length
+ * Fills an array with objects until it reaches the specified size
+ * @param {Array} array
+ * @param {Number} length
+ * @param {function} [createMethod=undefined]
+ * @returns {Array}
  */
-function fill(value, length)
-{
-  var arr = [];
-  while (arr.length !== length)
-    arr.push( value );
-  return arr;
+function fill(array, length, createMethod) {
+    if(array.length < length) {
+        createMethod = createMethod || function () { return {}; };
+        for(var i = 0; i < length; i++) {
+            array.push(createMethod(i));
+        }
+    }
+    return array;
 }
