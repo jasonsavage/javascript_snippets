@@ -1,29 +1,24 @@
 "use_strict";
 
 /**
- * simple US currency formatter 
+ * A simple US currency formatter 
  * @param {Object} value
  */
-function toUSCurrency(value)
-{ 
-    var str = value.toString();
-    if(str.indexOf(".") === -1)
-    {
-        str = str + ".00";
-    }
-    else
-    {
-        var arr = str.split(".");
-        if(arr[1].length > 1)
-        {
-            arr[1] = String(arr[1]).substr(0, 1);
-        }
-        else if(arr[1].length <= 1)
-        {
-            arr[1] += "0";
-        }
-        str = arr.join(".");
-    }
+function toUSCurrency(value) { 
+    //check if valid
+    var str = value.toString(),
+        pattern = /^-?(\d+)\.?(\d+)?$/,
+        matches = str.match(pattern);
     
-    return str;
+    if(matches && matches.length) {
+      var n = str.charAt(0) === "-" ? "-" : "",
+          a = matches[1], //first group
+          b = matches[2]; //second group
+      //commas
+      a = Number(a).toLocaleString();
+      //decimal
+      b = (typeof b !== "undefined") ? ((b.length > 1) ? b.substr(0, 2) : b + "0") : "00";
+      return "$" + n + a + "." + b;
+    }
+    return "$0.00";
 };
