@@ -5,12 +5,12 @@
  * @param {string} msg
  * @param {...} args
  */
-function substitute(msg/*, ...args*/)
-{
-    var args = Array.prototype.slice.call(arguments);
-    args.shift();
-    
-    var i = args.length;
-    while(i--) msg = msg.replace("/\{"+i+"\}/g", args[i]);
-    return msg;
+function substitute(/*...args*/) {
+	var args = Array.prototype.slice.call(arguments),
+		msg = args.shift();
+
+	return msg.replace(/{(\d+)}/g, function(match, number) {
+		return typeof args[number] !== 'undefined'
+			? args[number] : match;
+	});
 }
