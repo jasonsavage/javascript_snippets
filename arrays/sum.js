@@ -9,7 +9,7 @@ function sum (array) {
 
 //fallback
 function sum (array) {
-	var sum = 0;
+    var sum = 0;
 	array.forEach(function (value) {
 		sum += (isNaN(value) ? 0 : value);
 	});
