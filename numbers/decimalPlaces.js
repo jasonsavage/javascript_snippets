@@ -1,9 +1,8 @@
-function decimalPlaces(value) {
-    if(isNaN(value)) {
-        return 0;
-    }
-    var match = (''+value).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-    if (!match) { return 0; }
-    // Number of digits right of decimal point adjusting for scientific notation.
-    return Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
+function decimalPlaces (value, places) {
+	value = ''+value; //to string
+	var i = value.indexOf('.');
+	if(i !== -1) {
+		return value.substr(0, i) + value.substr(i, places+1);
+	}
+	return value;
 }
