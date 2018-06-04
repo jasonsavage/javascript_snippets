@@ -4,6 +4,17 @@
  * @param {string} funcName
  * @param {function} replacementFunc
  * @returns {function}
+ *
+ * @example
+ * // hijack BaseApi.bossApiGet, and wait for next call
+ * hijack(BaseApi, 'bossApiGet', () => {
+ *     // set reference back to the original function
+ *     BaseApi.bossApiGet.reset();
+ *     // make a copy
+ *     const seasonData = deepClone(CurrentCompSeasonResponse);
+ *     // resolve with the temp data as the response from the server
+ *     return Promise.resolve(seasonData);
+ * });
  */
 export function hijack (obj, funcName, replacementFunc) {
 	const hyjackedMethod = obj[funcName];
