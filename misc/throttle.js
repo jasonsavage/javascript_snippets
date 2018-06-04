@@ -6,11 +6,11 @@
  */
 function throttle (callback, limit) {
     var wait = false;
-    return function () {
+    return () => {
 		if (!wait) {
 			wait = true;
 			callback.call();
-			setTimeout(function () { 
+			setTimeout(() => { 
                 wait = false; 
             }, limit);
 		}
