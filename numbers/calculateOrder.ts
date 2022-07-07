@@ -1,3 +1,5 @@
+import {range} from 'ramda';
+
 /**
  * Creates an array of numbers that are offset by [index], uses clamp wrap to grab numbers that are
  * out of the range: 0 -> totalPages
